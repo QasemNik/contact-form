@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: 'Karla-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../public/fonts/static/Karla-Regular.ttf') format('ttf');
+  }
+  @font-face{
+    font-family: 'karla-bold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../public/fonts/static/Karla-Bold.ttf');
+  }
+  html{
+    font-family: "Karla-Regular", sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+@layer components{
+  .border-error{
+    @apply border-2 border-red-500 !important;
+  }
+  .active{
+    @apply bg-teal-300;
+  }
+  
+}
