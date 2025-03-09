@@ -17,8 +17,22 @@ export const validateMessage = (message) => {
 };
 
 export const validateQueryType = () => {
-  return document.querySelector('input[name="query-type"]:checked') !== null;
+    const selectedRadio = document.querySelector('input[name="query-type"]:checked');
+    
+    // 🟢 همه رادیو باتن‌ها را پیدا کرده و کلاس 'active' را حذف کن
+    document.querySelectorAll('input[name="query-type"]').forEach(radio => {
+        radio.parentElement.classList.remove('active');
+    });
+
+    // 🟢 اگر گزینه‌ای انتخاب شده، به والد آن کلاس 'active' اضافه کن
+    if (selectedRadio) {
+        selectedRadio.parentElement.classList.add('active');
+        return true;
+    }
+    
+    return false;
 };
+
 
 export const validateConsent = () => {
   const consentElem = document.getElementById("consent");

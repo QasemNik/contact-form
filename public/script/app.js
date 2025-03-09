@@ -1,6 +1,8 @@
 import { validateName, validateEmail, validateMessage, validateQueryType, validateConsent } from "./validation.js";
-import { showError, clearError } from "./showError.js"
+import { showError, clearError, showToast } from "./showModal.js"
 import { darkMode } from "./darkTheme.js";
+
+
 const submitBtn = document.querySelector('#submitBtn')
   const firstName = document.getElementById("firstName");
   const lastName = document.getElementById("lastName");
@@ -9,7 +11,7 @@ const submitBtn = document.querySelector('#submitBtn')
   
 const  submitHandler=(event) => {
   event.preventDefault();
-
+ 
   let isValid = true;
 const nameValue = firstName.value.trim()
 const lastNameValue = lastName.value.trim()
@@ -67,7 +69,7 @@ const messageValue = message.value
 //
   if (!validateQueryType()) {
     showError("queryTypeError", "Please select a query type");
-    isValid = false;
+    isValid = false;    
   } else {
     clearError("queryTypeError");
   }
@@ -90,7 +92,7 @@ const messageValue = message.value
   }
 
   if (isValid) {
-    alert("Form submitted successfully!");
+showToast()
   }
 
   function checkMessageLength(){
